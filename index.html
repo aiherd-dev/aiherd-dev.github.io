@@ -32,6 +32,7 @@
         <li><a href="#what" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">What it does</a></li>
         <li><a href="#features" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">Features</a></li>
         <li><a href="#agents" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">Background agents</a></li>
+        <li><a href="#terminals" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">Any terminal</a></li>
         <li><a href="#screenshots" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">Screenshots</a></li>
         <li><a href="#cli" class="block rounded px-2 py-2 hover:text-primary-700 md:p-0 dark:hover:text-primary-400">CLI</a></li>
       </ul>
@@ -65,11 +66,11 @@
 
 <section class="mx-auto max-w-screen-xl px-4 pb-12 lg:px-6">
   <figure>
-    <img src="img/app.png" class="shot" alt="The AIHerd app window showing three agent panes side by side, two of them flagged as waiting on a question">
+    <img src="img/app.png" class="shot" alt="The AIHerd app window: a sessions sidebar on the left and four agent panes, three of them flagged as waiting on a question with their answer options shown as buttons">
     <figcaption class="shot-caption mx-auto max-w-3xl text-center">
-      Three agents in three different terminal programs, in one window. Two have
+      Four agents in three different terminal programs, in one window. Three have
       stopped to ask something; AIHerd pulled their answers out of the screen so
-      you can pick one from here.
+      you can pick one from here. The sidebar keeps one card per session.
     </figcaption>
   </figure>
 </section>
@@ -109,6 +110,26 @@
 
     <div>
       <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd"/></svg>
+      </div>
+      <h3 class="text-lg font-semibold">Filter to the unanswered questions</h3>
+      <p class="lead mt-2">The ❓ button counts panes waiting on a question nobody has acknowledged,
+      and clicking it hides everything else. Tick a question's ? to mark it read;
+      the next question on that pane counts again.</p>
+    </div>
+
+    <div>
+      <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+      </div>
+      <h3 class="text-lg font-semibold">Mac notifications for new questions</h3>
+      <p class="lead mt-2">Turn on the 🔔 and every agent that newly stops to ask something raises a
+      macOS notification, so you hear about it without watching the window. Only a
+      fresh question notifies — never one you can already see.</p>
+    </div>
+
+    <div>
+      <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3.293 1.293a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 01-1.414-1.414L7.586 10 5.293 7.707a1 1 0 010-1.414zM11 12a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
       </div>
       <h3 class="text-lg font-semibold">Answer without switching windows</h3>
@@ -144,6 +165,27 @@
       <p class="lead mt-2">Screens are indexed as you work, so you can search months of scrollback by
       meaning rather than exact string — and jump to the matching point in the
       stitched history of that pane. The search model is compiled in too.</p>
+    </div>
+
+    <div>
+      <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm8 0a1 1 0 011-1h4a1 1 0 011 1v2a1 1 0 01-1 1h-4a1 1 0 01-1-1V4zm0 6a1 1 0 011-1h4a1 1 0 011 1v6a1 1 0 01-1 1h-4a1 1 0 01-1-1v-6z" clip-rule="evenodd"/></svg>
+      </div>
+      <h3 class="text-lg font-semibold">A sidebar of every session</h3>
+      <p class="lead mt-2">One card per pane — topic, summary, what it's waiting on, and where it
+      runs. ⌘F jumps to its filter, which also matches the working directory; misses
+      dim, hits highlight the text that earned them, and the sidebar follows you into
+      a pane's detail view.</p>
+    </div>
+
+    <div>
+      <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-primary-100 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/></svg>
+      </div>
+      <h3 class="text-lg font-semibold">Ask about a pane</h3>
+      <p class="lead mt-2">Open a chat next to any pane and ask the local LLM about what's
+      on it — what the agent did, why it stopped, what the error means. In the app and
+      the browser alike.</p>
     </div>
 
     <div>
@@ -214,6 +256,37 @@
   </div>
 </section>
 
+<!-- Terminal picker -->
+<section id="terminals" class="border-t border-gray-200 dark:border-gray-700">
+  <div class="mx-auto max-w-screen-xl px-4 py-12 lg:px-6 lg:py-16">
+    <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Follow any terminal</h2>
+    <p class="lead mt-3 max-w-3xl text-lg">
+      The grid normally shows panes where AIHerd recognizes a coding agent. The
+      <strong>＋ terminal</strong> button is for everything else: a build script, an
+      <code>ssh</code> session, a plain shell you want an eye on anyway.
+    </p>
+
+    <div class="mt-10 grid items-start gap-10 lg:grid-cols-2">
+      <figure>
+        <img src="img/terminals.png" class="shot" alt="The terminal picker open under the plus-terminal button: a card per untracked terminal, each with its TTY, the program on it and a live preview of its screen">
+        <figcaption class="shot-caption">One card per terminal not on the grid yet — its TTY, what's
+        running there, and a live preview of its screen, captured the moment the
+        picker opens.</figcaption>
+      </figure>
+
+      <div class="prose-block">
+        <p class="lead">Click a card and that terminal joins the grid, followed like
+        any other pane — screen capture, summaries, semantic search, saved history —
+        even though no known agent runs on it.</p>
+
+        <p class="lead mt-4">The previews are captured server-side when the picker
+        opens, so an idle picker costs nothing. Terminals already on the grid are
+        left out of the list.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Screenshots -->
 <section id="screenshots" class="border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/40">
   <div class="mx-auto max-w-screen-xl px-4 py-12 lg:px-6 lg:py-16">
@@ -253,6 +326,51 @@
         <figcaption class="shot-caption">Click a hit and it opens that pane's whole saved history stitched
         into one document, positioned at the moment the match happened — not at the
         top, where you'd have to hunt for it.</figcaption>
+      </figure>
+
+      <figure class="lg:col-span-2">
+        <img src="img/sidebar.png" class="shot" alt="The session sidebar next to the pane grid, filtered to the text Whats: the matching card expands to its full digest with the match highlighted, while the misses collapse to dim one-liners">
+        <figcaption class="shot-caption">The session sidebar, filtered to <em>Whats</em>. The card that
+        matches expands to its full digest — topic, summary, what it's waiting on,
+        the directory it runs in — with the matched text highlighted, so you can see
+        <em>why</em> it survived the filter; the misses collapse to dim one-liners.
+        ⌘F puts the cursor in the box; typing at the grid lands there too.</figcaption>
+      </figure>
+
+      <figure class="lg:col-span-2">
+        <img src="img/ask-llm.png" class="shot" alt="A pane opened full width with a chat panel on its right titled ask the local LLM, answering which language the code on screen is in">
+        <figcaption class="shot-caption">Ask the local LLM about any pane. The chat opens next to the
+        screen it's reading — here it identifies the language of the code the agent
+        is working on, from the pane alone.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/ask-llm-chat.png" class="shot" alt="The ask-the-local-LLM chat panel up close: two answered questions and an input box reading Ask a question">
+        <figcaption class="shot-caption">It's a conversation, not a one-shot: follow-up questions keep the
+        pane as context. The model is the same in-process one that writes the
+        summaries, so nothing leaves the machine.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="img/sidepanel.png" class="shot" alt="The session sidebar shown next to a single pane's detail view, with a hovered card revealing its full summary in a tooltip">
+        <figcaption class="shot-caption">The sidebar follows you into a pane's detail view, so the other
+        sessions stay one glance away. Hover a card to read its full summary without
+        leaving the pane you're in.</figcaption>
+      </figure>
+
+      <figure class="lg:col-span-2">
+        <img src="img/unread.png" class="shot" alt="The grid filtered by the question button: only the two panes with unanswered questions remain, each with a badge showing how long it has been waiting">
+        <figcaption class="shot-caption">The ❓ button, toggled on: only panes with a question nobody has
+        acknowledged remain, each badge showing how long it has been waiting. Mark
+        one read and it drops out; its next question brings it back.</figcaption>
+      </figure>
+
+      <figure class="lg:col-span-2">
+        <img src="img/notifications.png" class="shot" alt="macOS notification banners from AIHerd and Claude Code, each summarizing what an agent is waiting on, next to the dashboard toolbar with the bell enabled">
+        <figcaption class="shot-caption">The 🔔 in the toolbar turns on macOS notifications: when an agent
+        newly stops to ask something, a banner tells you which one and what it wants,
+        even while AIHerd is in the background. It asks for notification permission
+        the first time you turn it on.</figcaption>
       </figure>
 
       <figure class="lg:col-span-2">
@@ -322,6 +440,10 @@ aih serve -p 8080 --tty ttys002,ttys004,ttys007,ttys009</code></pre>
     <p class="lead mt-3">It takes bare names or <code>/dev/</code> paths, repeats
     (<code>--tty ttys002 --tty ttys004</code>) as well as comma-separated lists, and
     overrides pinned panes — so the set you name is exactly the set you get.</p>
+
+    <p class="lead mt-3">The same filter lives in Settings — <code>⌘,</code> in the app,
+    the ⚙ in the web toolbar — as a list you add panes to, and it takes effect while
+    the server runs, no restart.</p>
 
     <h3 class="mt-10 text-xl font-bold">Everything the dashboard knows, on stdout</h3>
 
