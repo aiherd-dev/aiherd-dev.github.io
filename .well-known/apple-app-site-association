@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "QNHETPLPPW.dev.aiherd.AIHerd",
+        "paths": [
+          "/oauth/ios"
+        ]
+      }
+    ]
+  }
+}

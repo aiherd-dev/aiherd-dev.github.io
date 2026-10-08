@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.aiherd.app",
+      "sha256_cert_fingerprints": [
+        "A2:F5:97:8E:B7:C3:67:DF:4C:9B:00:22:8F:6F:29:9B:78:6A:B9:E4:1E:10:E0:30:94:50:8E:81:40:19:78:F8",
+        "37:FF:B6:27:E3:82:50:83:77:2B:6F:BD:CB:39:3E:E4:A6:B3:6F:5F:97:40:91:D0:9A:0C:5E:57:C3:F2:39:B4"
+      ]
+    }
+  }
+]
