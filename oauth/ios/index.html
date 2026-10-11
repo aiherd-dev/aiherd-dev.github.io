@@ -1,1 +1,40 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>Return to AIHerd</title><body><h1>Return to AIHerd</h1><p>Open this link with the AIHerd app to finish signing in. If the app is not installed, install it and start sign-in again.</p><a href="https://aiherd.dev/">Get AIHerd</a></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>Return to AIHerd</title>
+  <style>body{font:17px/1.5 system-ui,sans-serif;max-width:440px;margin:12vh auto;padding:24px;color:#202b22}a{color:#264e37}#open{display:inline-block;padding:12px 24px;background:#264e37;color:white;border-radius:8px;text-decoration:none}[hidden]{display:none!important}</style>
+</head>
+<body>
+  <h1>Return to AIHerd</h1>
+  <p id="status">Start sign-in from AIHerd on your iPhone or iPad.</p>
+  <a id="open" hidden rel="noreferrer">Open AIHerd</a>
+  <p>If AIHerd does not open, update the app and start sign-in again. This sign-in link expires shortly.</p>
+  <script>
+    (() => {
+      const query = new URLSearchParams(location.search);
+      const keys = [...query.keys()];
+      const valid = new Set(keys).size === keys.length &&
+        keys.every(key => ['state', 'iss', 'code', 'error'].includes(key)) &&
+        query.get('iss') === 'https://auth.aiherd.dev' && query.get('state') &&
+        Boolean(query.get('code')) !== Boolean(query.get('error'));
+      // Keep the callback out of browser history and referrers. The app still
+      // validates state, issuer, expiry, PKCE and its device key before sign-in.
+      history.replaceState(null, '', location.pathname);
+      if (!valid) return;
+      const callback = new URL('aih-auth://oauth/ios');
+      callback.search = query.toString();
+      const open = document.getElementById('open');
+      open.href = callback.href;
+      open.hidden = false;
+      document.getElementById('status').textContent = 'Your sign-in is ready. Return to AIHerd to finish.';
+      // ASWebAuthenticationSession on iOS 17.0–17.3 intercepts this callback.
+      // Newer iOS intercepts the HTTPS callback before this page is loaded.
+      location.replace(callback.href);
+    })();
+  </script>
+</body>
+</html>

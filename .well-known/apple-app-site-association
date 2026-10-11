@@ -5,9 +5,13 @@
       {
         "appID": "QNHETPLPPW.dev.aiherd.AIHerd",
         "paths": [
-          "/oauth/ios"
+          "/oauth/ios",
+          "/oauth/ios/"
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["QNHETPLPPW.dev.aiherd.AIHerd"]
   }
 }
