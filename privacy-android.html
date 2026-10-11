@@ -1,8 +1,13 @@
 <!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>AIHerd Android Privacy Policy</title>
 <style>body{max-width:760px;margin:60px auto;padding:0 24px;font:17px/1.65 system-ui;color:#243128;background:#faf9f5}h1,h2{line-height:1.2}aside{background:#fff0cf;padding:18px;border-radius:12px}a{color:#276447}</style>
-<p>Last updated: 7 October 2026</p>
+<p>Last updated: 11 October 2026</p>
 <h1>AIHerd Privacy Policy</h1>
 <p>This policy covers the AIHerd Android companion app and the AIHerd services it uses. AIHerd connects your phone to coding sessions on computers you choose.</p>
+<h2>Optional sign-in and account deletion</h2>
+<p>Sign-in is not mandatory. The app is usable without an AIHerd account through SSH, Tailscale or an approved pairing link. Optional sign-in lets you discover herds signed in to your account.</p>
+<p>When you sign in, the authentication service retains your email address, an opaque account ID, your provider identifier and available display name while your account exists. These records identify your account and discover your herds; signing in does not upload terminal contents or project files. Authentication also uses key-bound credentials and short-lived security records. An Apple revocation token is stored encrypted so Sign in with Apple authorization can be revoked on deletion.</p>
+<p>While signed in, open Account and choose Delete account. Confirming deletion removes your email, account ID, profile, provider links, account enrollments and saved account herd entries from the active authentication service, and revokes all account credentials. Restricted-access deployment backups expire after 30 days. Unlinked revoked credential IDs contain no email, account ID or provider identity. Files on your own computers and existing paired-device credentials are not deleted; you can continue using AIHerd without signing in. Signing out alone does not delete your account.</p>
+<p>More detail: <a href="https://auth.aiherd.dev/privacy">authentication privacy policy</a>.</p>
 <h2>Information used by the app</h2>
 <p>AIHerd stores connection settings and credentials on your device. Connection credentials are protected using Android's encrypted preferences. The app exchanges terminal output, commands, session information, and other content you request with your connected computer. Your computer and the coding tools you run have their own storage and data practices.</p>
 <p>We use technical usage and connection logs to operate, troubleshoot, and protect the service. These can include request times, app versions, connection results, and network metadata. Hosting and network providers may process IP addresses and request metadata to deliver and secure the service.</p>
