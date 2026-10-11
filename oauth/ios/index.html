@@ -31,8 +31,8 @@
       open.href = callback.href;
       open.hidden = false;
       document.getElementById('status').textContent = 'Your sign-in is ready. Return to AIHerd to finish.';
-      // ASWebAuthenticationSession on iOS 17.0–17.3 intercepts this callback.
-      // Newer iOS intercepts the HTTPS callback before this page is loaded.
+      // ASWebAuthenticationSession returns this callback only to the app
+      // that started sign-in, on every supported iOS version.
       location.replace(callback.href);
     })();
   </script>
