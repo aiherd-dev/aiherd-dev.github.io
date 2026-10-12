@@ -11,12 +11,7 @@ case "$(uname -m)" in
   x86_64|amd64) arch=x86_64 ;;
   *) fail 'Linux releases currently support x86_64. ARM64 Linux packages are not available yet.' ;;
 esac
-for tool in curl tar sha256sum awk grep install mktemp systemctl loginctl getconf ldd seq id; do need "$tool"; done
-
-libc=$(getconf GNU_LIBC_VERSION 2>/dev/null) || fail 'A glibc Linux distribution is required (Ubuntu 24.04 or newer is supported).'
-if ! printf '%s\n' "$libc" | awk '$1 == "glibc" { split($2, v, "."); if (v[1] > 2 || (v[1] == 2 && v[2] >= 39)) ok=1 } END { exit !ok }'; then
-  fail "glibc 2.39 or newer is required; found $libc. Use Ubuntu 24.04 or newer."
-fi
+for tool in curl tar sha256sum awk grep install mktemp systemctl loginctl seq id; do need "$tool"; done
 
 repo=https://github.com/aiherd-dev/homebrew-aiherd
 version=${AIHERD_VERSION:-}
@@ -26,13 +21,34 @@ if [ -z "$version" ]; then
 fi
 version=${version#v}
 printf '%s\n' "$version" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || fail 'Could not resolve a stable AIHerd release.'
-archive="aiherd-${version}-${arch}-linux-gnu-terminal.tar.gz"
+base="$repo/releases/download/v$version"
+libc=${AIHERD_LINUX_LIBC:-auto}
+if [ "$libc" = auto ]; then
+  status=$(curl --silent --show-error --location --head --output /dev/null --write-out '%{http_code}' "$base/aiherd-${version}-${arch}-linux-musl-terminal.tar.gz") || fail 'Could not check the static Linux release.'
+  case "$status" in
+    200) libc=musl ;;
+    404) libc=gnu ;;
+    *) fail "Static release lookup returned HTTP $status. Try again later." ;;
+  esac
+fi
+case "$libc" in
+  musl) ;;
+  gnu)
+    need getconf
+    need ldd
+    detected_libc=$(getconf GNU_LIBC_VERSION 2>/dev/null) || fail 'This older release requires glibc. Select a release with a static musl package.'
+    if ! printf '%s\n' "$detected_libc" | awk '$1 == "glibc" { split($2, v, "."); if (v[1] > 2 || (v[1] == 2 && v[2] >= 39)) ok=1 } END { exit !ok }'; then
+      fail "This GNU package needs glibc 2.39 or newer; found $detected_libc. Select a release with a static musl package."
+    fi
+    ;;
+  *) fail 'AIHERD_LINUX_LIBC must be auto, musl or gnu.' ;;
+esac
+archive="aiherd-${version}-${arch}-linux-${libc}-terminal.tar.gz"
 work=$(mktemp -d "${TMPDIR:-/tmp}/aih-install.XXXXXXXX")
 trap 'rm -rf "$work"' EXIT
 umask 077
 
-printf 'Downloading AIHerd %s for headless Linux…\n' "$version"
-base="$repo/releases/download/v$version"
+printf 'Downloading AIHerd %s for headless Linux (%s)…\n' "$version" "$libc"
 curl --fail --show-error --location --retry 3 --output "$work/$archive" "$base/$archive" || fail "No Linux package is available for v$version. Check $repo/releases."
 curl --fail --silent --show-error --location --retry 3 --output "$work/checksum" "$base/$archive.sha256"
 expected=$(awk 'NR == 1 { print $1 }' "$work/checksum")
@@ -44,9 +60,11 @@ mkdir "$work/package"
 tar -xzf "$work/$archive" --strip-components=1 -C "$work/package"
 for binary in aih aih-fdkeeper aih-rdpauth; do
   [ -f "$work/package/bin/$binary" ] && [ ! -L "$work/package/bin/$binary" ] || fail "Release is missing bin/$binary."
-  if ! libraries=$(ldd "$work/package/bin/$binary" 2>&1) || printf '%s\n' "$libraries" | grep -q 'not found'; then
-    printf '%s\n' "$libraries" >&2
-    fail 'Missing runtime libraries. On Ubuntu/Debian run: sudo apt-get install libsqlite3-0 libgomp1 libstdc++6 libgcc-s1'
+  if [ "$libc" = gnu ]; then
+    if ! libraries=$(ldd "$work/package/bin/$binary" 2>&1) || printf '%s\n' "$libraries" | grep -q 'not found'; then
+      printf '%s\n' "$libraries" >&2
+      fail 'Missing runtime libraries. On Ubuntu/Debian run: sudo apt-get install libsqlite3-0 libgomp1 libstdc++6 libgcc-s1'
+    fi
   fi
 done
 "$work/package/bin/aih" --version
