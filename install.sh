@@ -9,7 +9,8 @@ need() { command -v "$1" >/dev/null 2>&1 || fail "Install $1, then run this inst
 [ "$(uname -s)" = Linux ] || fail 'This installer is for Linux. On macOS use: brew install --cask aiherd-dev/aiherd/aiherd'
 case "$(uname -m)" in
   x86_64|amd64) arch=x86_64 ;;
-  *) fail 'Linux releases currently support x86_64. ARM64 Linux packages are not available yet.' ;;
+  aarch64|arm64) arch=aarch64 ;;
+  *) fail 'Linux releases support x86_64 and aarch64 (ARM64).' ;;
 esac
 for tool in curl tar sha256sum awk grep install mktemp systemctl loginctl seq id; do need "$tool"; done
 
@@ -48,8 +49,8 @@ work=$(mktemp -d "${TMPDIR:-/tmp}/aih-install.XXXXXXXX")
 trap 'rm -rf "$work"' EXIT
 umask 077
 
-printf 'Downloading AIHerd %s for headless Linux (%s)…\n' "$version" "$libc"
-curl --fail --show-error --location --retry 3 --output "$work/$archive" "$base/$archive" || fail "No Linux package is available for v$version. Check $repo/releases."
+printf 'Downloading AIHerd %s for headless Linux (%s, %s)…\n' "$version" "$arch" "$libc"
+curl --fail --show-error --location --retry 3 --output "$work/$archive" "$base/$archive" || fail "No $arch Linux $libc package is available for v$version. Check $repo/releases."
 curl --fail --silent --show-error --location --retry 3 --output "$work/checksum" "$base/$archive.sha256"
 expected=$(awk 'NR == 1 { print $1 }' "$work/checksum")
 printf '%s\n' "$expected" | grep -Eq '^[0-9a-fA-F]{64}$' || fail 'Invalid release checksum.'
