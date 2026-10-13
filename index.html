@@ -74,46 +74,36 @@ aih login</code></pre>
     </div>
   </div>
 
-  <!-- Screenshots are their own pixel size; max-w keeps each near 1:1 rather
-       than upscaled soft. -->
   <figure class="mt-10">
-    <img src="img/all-panes.png" class="shot mx-auto max-w-2xl" alt="The AIHerd window: a session sidebar listing panes with the question each is waiting on, and the selected pane's live screen beside it">
-    <figcaption class="shot-caption mx-auto max-w-2xl">Every pane on the machine down the side, what each one is
-    waiting on written under its name, and the one you picked live on the right.</figcaption>
+    <img src="img/mac-live.png" width="1089" height="821" class="shot mx-auto max-w-5xl" alt="The native AIHerd Mac app showing live terminal panes, agent summaries, and questions waiting for input in the session sidebar">
+    <figcaption class="shot-caption mx-auto max-w-5xl">The native Mac app keeps your agents' live screens,
+    summaries, and waiting questions together in one window.</figcaption>
   </figure>
 </section>
 
-<!-- Screenshots -->
-<section class="border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/40">
+<!-- Native Mac app screenshots -->
+<section aria-label="Mac app features" class="border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/40">
   <div class="mx-auto max-w-screen-xl space-y-12 px-4 py-12 lg:px-6 lg:py-16">
-
     <figure>
-      <img src="img/focus.png" class="shot mx-auto max-w-5xl" alt="A pane open full size inside AIHerd, with its scrollback, a command box, and esc, arrow and ctrl keys beneath it">
-      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Open a pane and you can type into it —
-      command box, esc, arrows and ^ keys, exactly as if you were sitting in front of the terminal.</figcaption>
+      <img src="img/mac-topics.png" width="976" height="679" class="shot mx-auto max-w-5xl" alt="AIHerd's Mac session sidebar with shared-topic groups, working directories, agent filters, and a pane's summary beside its live terminal screen">
+      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Find related work with shared-topic groups,
+      or narrow the session sidebar by directory and agent.</figcaption>
     </figure>
-
     <figure>
-      <img src="img/search-history.png" class="shot mx-auto max-w-5xl" alt="The search tab: a query with 20 hits in 8 sessions listed down the left, and the selected hit's summary and matching lines on the right">
-      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Search greps live screens and every session
-      it has ever stored, and says in a line why each hit is a match.</figcaption>
+      <img src="img/mac-history.png" width="2200" height="1640" class="shot mx-auto max-w-5xl" alt="The native Mac app's Past tab with a session activity chart, recorded sessions, and the selected session's summary and captured terminal output">
+      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Past sessions keep their summaries and
+      captured screens. Pick a session to revisit its work or open its pane.</figcaption>
     </figure>
-
-    <div class="grid gap-10 md:grid-cols-3">
+    <div class="grid gap-10 sm:grid-cols-2">
       <figure>
-        <img src="img/serve-on-the-cloud.png" class="shot" alt="The herd cloud popover: a Stop button, copy-link and QR buttons for the app and for a website, and a bar chart of bytes carried over the last seven days">
-        <figcaption class="shot-caption">One button publishes the herd through the relay, which carries bytes it
-        cannot read.</figcaption>
+        <img src="img/mac-panes.png" width="1040" height="1016" class="shot" alt="The Mac app's Panes settings with the watch list restricted to ttys016, ttys023, ttys107, and ttys108">
+        <figcaption class="shot-caption">Choose the terminals to watch from Settings → Panes,
+        and add other agent commands you want AIHerd to recognize.</figcaption>
       </figure>
       <figure>
-        <img src="img/claude-agents.png" class="shot" alt="The agents popover: one Claude Code background session, its task, its blocked state and its directory">
-        <figcaption class="shot-caption">Claude Code background sessions have no terminal to look at, so they get
-        their own list — this one is blocked.</figcaption>
-      </figure>
-      <figure>
-        <img src="img/resize.png" class="shot" alt="The tile size popover: a slider reading 420pt and 12 lines">
-        <figcaption class="shot-caption">Tile size is one slider: a notch up is one fewer column and that much
-        more of every screen.</figcaption>
+        <img src="img/mac-appearance.png" width="1040" height="1016" class="shot" alt="The Mac app's Appearance settings showing terminal and interface fonts, the sheep status toggle, and terminal color themes">
+        <figcaption class="shot-caption">Set your terminal and interface fonts, choose a color theme,
+        and show each pane's status as a sheep.</figcaption>
       </figure>
     </div>
   </div>
@@ -121,13 +111,7 @@ aih login</code></pre>
 
 <!-- Mobile beta -->
 <section id="beta" class="border-t border-gray-200 dark:border-gray-700">
-  <div class="mx-auto grid max-w-screen-lg items-center gap-10 px-4 py-12 sm:grid-cols-2 lg:px-6 lg:py-16">
-    <figure>
-      <img src="img/phone-list.png" class="shot mx-auto max-w-xs" alt="The iPhone app's pane list: a card for a pane waiting on a question with its answer options as tappable chips, and cards for working panes with their topics and summaries">
-      <figcaption class="shot-caption text-center">The agents run on the machine under your desk; the phone in your
-      pocket answers what they are blocked on.</figcaption>
-    </figure>
-
+  <div class="mx-auto max-w-2xl px-4 py-12 lg:px-6 lg:py-16">
     <div>
       <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Join the mobile beta</h2>
       <p class="lead mt-3">The iPhone and Android apps are in testing. Leave a phone number and an
