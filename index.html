@@ -9,16 +9,21 @@
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/features.css">
 </head>
 <body class="bg-white text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
 
 <header class="sticky top-0 z-20 border-b border-gray-200 bg-white/90 backdrop-blur dark:border-gray-700 dark:bg-gray-900/90">
-  <nav class="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-3 lg:px-6">
+  <nav class="main-nav mx-auto flex max-w-screen-xl items-center justify-between px-4 py-3 lg:px-6">
     <a href="#top" class="flex items-center gap-2">
       <img src="img/icon.png" class="h-8 w-8" alt="">
       <span class="text-xl font-semibold">AIHerd</span>
     </a>
-    <a href="#beta" class="font-medium hover:text-primary-700 dark:hover:text-primary-400">Mobile beta</a>
+    <div class="section-links">
+      <a href="#local-agents">Local agents</a>
+      <a href="#remote-access">Remote access</a>
+      <a href="#beta">Mobile beta</a>
+    </div>
   </nav>
 </header>
 
@@ -74,31 +79,66 @@ aih login</code></pre>
     </div>
   </div>
 
-  <figure class="mt-10">
-    <img src="img/mac-live.png" width="1089" height="821" class="shot mx-auto max-w-5xl" alt="The native AIHerd Mac app showing live terminal panes, agent summaries, and questions waiting for input in the session sidebar">
-    <figcaption class="shot-caption mx-auto max-w-5xl">The native Mac app keeps your agents' live screens,
-    summaries, and waiting questions together in one window.</figcaption>
-  </figure>
 </section>
 
-<!-- Native Mac app screenshots -->
-<section aria-label="Mac app features" class="border-t border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-800/40">
-  <div class="mx-auto max-w-screen-xl space-y-12 px-4 py-12 lg:px-6 lg:py-16">
-    <figure>
-      <img src="img/mac-topics.png" width="976" height="679" class="shot mx-auto max-w-5xl" alt="AIHerd's Mac session sidebar with shared-topic groups, working directories, agent filters, and a pane's summary beside its live terminal screen">
-      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Find related work with shared-topic groups,
-      or narrow the session sidebar by directory and agent.</figcaption>
+<section id="local-agents" class="feature-section" aria-labelledby="local-heading">
+  <div class="feature-wrap">
+    <div class="section-heading">
+      <div>
+        <h2 id="local-heading">Local agents</h2>
+        <p>Live screens, waiting questions, and session history. Your agents together on your Mac.</p>
+      </div>
+      <div class="gallery-controls" hidden>
+        <span id="gallery-position" aria-live="polite">1 / 3</span>
+        <button type="button" id="gallery-prev" aria-label="Previous agent screenshot" aria-controls="agent-gallery">‹</button>
+        <button type="button" id="gallery-next" aria-label="Next agent screenshot" aria-controls="agent-gallery">›</button>
+      </div>
+    </div>
+    <div id="agent-gallery" class="agent-gallery" tabindex="0" role="region" aria-label="Local agent screenshots; scroll horizontally to explore" aria-describedby="gallery-hint">
+      <figure class="agent-slide">
+        <img src="img/mac-live.png" width="1089" height="821" alt="The native AIHerd Mac app showing live terminal panes, summaries, and questions waiting for input in the session sidebar">
+        <figcaption><h3>See who needs you</h3><p>The native Mac app keeps your agents' live screens, summaries, and waiting questions together in one window.</p></figcaption>
+      </figure>
+      <figure class="agent-slide">
+        <img src="img/mac-topics.png" width="976" height="679" loading="lazy" alt="AIHerd's Mac session sidebar with shared-topic groups, working directories, agent filters, and a live terminal screen">
+        <figcaption><h3>Find related work</h3><p>Use shared-topic groups, or narrow the session sidebar by directory and agent.</p></figcaption>
+      </figure>
+      <figure class="agent-slide">
+        <img src="img/mac-history.png" width="2200" height="1640" loading="lazy" alt="The native Mac app's Past tab with a session activity chart, recorded sessions, and the selected session's summary and terminal output">
+        <figcaption><h3>Pick up past sessions</h3><p>Past sessions keep their summaries and captured screens. Revisit the work or open its pane.</p></figcaption>
+      </figure>
+    </div>
+    <p id="gallery-hint" class="gallery-hint">Scroll sideways or swipe to explore.</p>
+  </div>
+</section>
+
+<section id="remote-access" class="feature-section remote-section" aria-labelledby="remote-heading">
+  <div class="feature-wrap">
+    <div class="section-heading">
+      <div>
+        <h2 id="remote-heading">Remote access</h2>
+        <p>Your Mac, wherever you are. Connect from mobile, SSH, or VNC.</p>
+      </div>
+    </div>
+    <figure class="remote-demo">
+      <video controls playsinline preload="metadata" poster="img/ssh-wifi-roaming.jpg" width="1034" height="582" aria-label="Recording of an aih SSH session staying alive through a network interruption" aria-describedby="roaming-caption">
+        <source src="video/ssh-wifi-roaming.mp4" type="video/mp4">
+        <a href="video/ssh-wifi-roaming.mp4">Watch the SSH connection recording.</a>
+      </video>
+      <figcaption id="roaming-caption">Through <code>aih</code>, your SSH connection stays alive even after switching Wi-Fi.</figcaption>
     </figure>
-    <figure>
-      <img src="img/mac-history.png" width="2200" height="1640" class="shot mx-auto max-w-5xl" alt="The native Mac app's Past tab with a session activity chart, recorded sessions, and the selected session's summary and captured terminal output">
-      <figcaption class="shot-caption mx-auto max-w-5xl text-center">Past sessions keep their summaries and
-      captured screens. Pick a session to revisit its work or open its pane.</figcaption>
-    </figure>
-    <figure>
-      <img src="img/mac-connection.png" width="808" height="1078" class="shot mx-auto max-w-2xl" alt="The native Mac app's herd cloud connection popover showing relay status, screen sharing, mobile and website links, and connection traffic">
-      <figcaption class="shot-caption mx-auto max-w-2xl text-center">Access your Mac remotely, through mobile,
-      mosh-like SSH that never disconnects, or VNC.</figcaption>
-    </figure>
+    <div class="remote-details">
+      <div class="remote-copy">
+        <h3>The tools you already use</h3>
+        <p>Use standard SSH, SCP, and rsync. AIHerd speaks 100% standard SSH and SFTP, so you can also browse and transfer files with <a href="https://cyberduck.io/">Cyberduck</a>.</p>
+        <h3>Your herd on the go</h3>
+        <p>Open your agents on mobile, keep a terminal session going through network changes, or access your Mac's desktop through VNC. The herd connection menu brings your remote access together.</p>
+      </div>
+      <figure class="herd-connection">
+        <img src="img/mac-connection.png" width="808" height="1078" loading="lazy" alt="The native Mac app's herd cloud connection menu with relay status, screen sharing, mobile and website links, and connection traffic">
+        <figcaption>The herd connection menu in the Mac app.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -157,6 +197,39 @@ aih login</code></pre>
     document.getElementById("beta-form").hidden = true;
     document.getElementById("beta-thanks").hidden = false;
   }
+
+  const gallery = document.getElementById("agent-gallery");
+  const slides = [...gallery.querySelectorAll(".agent-slide")];
+  const previous = document.getElementById("gallery-prev");
+  const next = document.getElementById("gallery-next");
+  const position = document.getElementById("gallery-position");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let activeSlide = 0;
+  const slidePosition = (slide) => slide.getBoundingClientRect().left - gallery.getBoundingClientRect().left + gallery.scrollLeft;
+  function updateGallery() {
+    activeSlide = slides.reduce((nearest, slide, index) =>
+      Math.abs(slidePosition(slide) - gallery.scrollLeft) <
+      Math.abs(slidePosition(slides[nearest]) - gallery.scrollLeft) ? index : nearest, 0);
+    position.textContent = `${activeSlide + 1} / ${slides.length}`;
+    previous.disabled = activeSlide === 0;
+    next.disabled = activeSlide === slides.length - 1;
+  }
+  function moveGallery(index) {
+    gallery.scrollTo({left: slidePosition(slides[index]),
+      behavior: reducedMotion.matches ? "instant" : "smooth"});
+  }
+  previous.addEventListener("click", () => moveGallery(Math.max(0, activeSlide - 1)));
+  next.addEventListener("click", () => moveGallery(Math.min(slides.length - 1, activeSlide + 1)));
+  gallery.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    moveGallery(event.key === "Home" ? 0 : event.key === "End" ? slides.length - 1 :
+      Math.max(0, Math.min(slides.length - 1, activeSlide + (event.key === "ArrowRight" ? 1 : -1))));
+  });
+  gallery.addEventListener("scroll", updateGallery, {passive: true});
+  window.addEventListener("resize", updateGallery);
+  document.querySelector(".gallery-controls").hidden = false;
+  updateGallery();
 
   const tabs = [...document.querySelectorAll('[role="tab"][data-platform]')];
   function selectPlatform(platform, focus = false) {
