@@ -40,11 +40,12 @@
     follows Ghostty, iTerm2, Terminal, tmux and cmux.
   </p>
 
-  <!-- Both platforms share one installation entry point. -->
+  <!-- Platform installation commands. -->
   <div id="install" class="mx-auto mt-8 max-w-2xl text-left">
     <div role="tablist" aria-label="Installation platform" class="mb-3 flex gap-2">
       <button id="mac-tab" type="button" role="tab" aria-controls="mac-install" aria-selected="true" tabindex="0" class="install-tab" data-platform="mac">macOS</button>
       <button id="linux-tab" type="button" role="tab" aria-controls="linux-install" aria-selected="false" tabindex="-1" class="install-tab" data-platform="linux">Linux</button>
+      <button id="windows-tab" type="button" role="tab" aria-controls="windows-install" aria-selected="false" tabindex="-1" class="install-tab" data-platform="windows">Windows</button>
     </div>
     <div id="mac-install" role="tabpanel" aria-labelledby="mac-tab">
       <div class="install-command">
@@ -76,6 +77,31 @@ aih login</code></pre>
       <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">Scan the QR code or open the link, then approve pairing in the terminal.</p>
       <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">Check the service: <code>systemctl --user status aih.service</code>.<br>Logs: <code>journalctl --user -u aih.service -f</code>.</p>
       <p class="mt-3 text-sm"><a class="font-medium text-primary-700 underline dark:text-primary-400" href="https://github.com/aiherd-dev/aiherd/blob/main/scripts/install-linux.sh">Read the installer</a> · <a class="font-medium text-primary-700 underline dark:text-primary-400" href="https://github.com/aiherd-dev/aiherd/blob/main/docs/linux-build.md">Linux installation guide</a></p>
+    </div>
+    <div id="windows-install" role="tabpanel" aria-labelledby="windows-tab" hidden>
+      <p class="mb-3 lead">Run the Windows remote gateway as a background service, including after logout and reboot. Open PowerShell as Administrator.</p>
+      <p class="mb-3 text-sm font-semibold">Requires a Windows ZIP in the latest release. If none is listed yet, wait for the next release.</p>
+      <p class="mt-5 mb-2 text-sm font-semibold">1. Install and start the service</p>
+      <div class="install-command">
+        <pre class="flex-1 overflow-x-auto px-2 py-1 font-mono text-sm sm:text-base"><code id="windows-install-cmd">Invoke-WebRequest -UseBasicParsing https://aiherd.dev/install.ps1 -OutFile "$env:TEMP\aiherd-install.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$env:TEMP\aiherd-install.ps1"</code></pre>
+        <button type="button" data-target="windows-install-cmd" aria-label="Copy the Windows install commands" title="Copy" class="copy-command">⧉</button>
+      </div>
+      <p class="mt-5 mb-2 text-sm font-semibold">2. Sign in</p>
+      <div class="install-command">
+        <pre class="flex-1 overflow-x-auto px-2 py-1 font-mono text-sm sm:text-base"><code id="windows-login-cmd">&amp; "$env:ProgramFiles\AIHerd\aih.exe" login</code></pre>
+        <button type="button" data-target="windows-login-cmd" aria-label="Copy the Windows login commands" title="Copy" class="copy-command">⧉</button>
+      </div>
+      <p class="mt-5 mb-2 text-sm font-semibold">3. Pair your mobile device</p>
+      <div class="install-command">
+        <pre class="flex-1 overflow-x-auto px-2 py-1 font-mono text-sm sm:text-base"><code id="windows-join-cmd">&amp; "$env:ProgramFiles\AIHerd\aih.exe" join</code></pre>
+        <button type="button" data-target="windows-join-cmd" aria-label="Copy the Windows join commands" title="Copy" class="copy-command">⧉</button>
+      </div>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">Open the sign-in URL in your browser. Then scan the pairing QR code on your phone and approve it in PowerShell.</p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">x64 · Windows 10 1809 / Server 2019 or newer. Native PowerShell terminals, SSH and forwarding. This package is the remote gateway; desktop monitoring and local AI models are available on macOS and Linux.</p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">The service runs as LocalService. Its terminals use that account's permissions. Rerun the installer to upgrade; credentials are preserved and open shells close during restart.</p>
+      <p class="mt-3 text-sm text-gray-500 dark:text-gray-400">Check the service: <code>Get-Service AIHerd</code>.</p>
+      <p class="mt-3 text-sm"><a class="font-medium text-primary-700 underline dark:text-primary-400" href="/install.ps1">Read the PowerShell installer</a> · <a class="font-medium text-primary-700 underline dark:text-primary-400" href="https://github.com/aiherd-dev/homebrew-aiherd/releases">Release downloads</a></p>
     </div>
   </div>
 
@@ -265,7 +291,7 @@ aih login</code></pre>
     });
   });
   const requestedPlatform = new URLSearchParams(location.search).get("platform");
-  selectPlatform(requestedPlatform === "linux" || requestedPlatform === "mac" ? requestedPlatform : (/Linux/.test(navigator.platform) && !/Android/.test(navigator.userAgent) ? "linux" : "mac"));
+  selectPlatform(["linux", "mac", "windows"].includes(requestedPlatform) ? requestedPlatform : (/Win/.test(navigator.platform) ? "windows" : /Linux/.test(navigator.platform) && !/Android/.test(navigator.userAgent) ? "linux" : "mac"));
 
   // navigator.clipboard needs a secure context, so it's absent over plain http
   // (someone serving these docs locally). Fall back to a throwaway textarea +
