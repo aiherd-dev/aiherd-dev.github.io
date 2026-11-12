@@ -316,8 +316,14 @@ python3 -m unittest -v</code></pre>
       }
     });
   });
+  function detectPlatform() {
+    const userAgent = navigator.userAgent || navigator.platform || "";
+    if (/Windows|Win32|Win64/i.test(userAgent)) return "windows";
+    if (/Linux/i.test(userAgent) && !/Android/i.test(userAgent)) return "linux";
+    return "mac";
+  }
   const requestedPlatform = new URLSearchParams(location.search).get("platform");
-  selectPlatform(["mac", "linux", "windows"].includes(requestedPlatform) ? requestedPlatform : (/Win/.test(navigator.platform) ? "windows" : /Linux/.test(navigator.platform) && !/Android/.test(navigator.userAgent) ? "linux" : "mac"));
+  selectPlatform(["mac", "linux", "windows"].includes(requestedPlatform) ? requestedPlatform : detectPlatform());
 
   // navigator.clipboard needs a secure context, so it's absent over plain http
   // (someone serving these docs locally). Fall back to a throwaway textarea +
