@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>AIHerd — access your laptop AI from your mobile</title>
+<title>AIHerd — access your laptop from your mobile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Access your laptop AI from your mobile without changing your workflow. Keep working in VS Code, cmux, or Cursor and send a prompt to your coding agents on the go.">
+<meta name="description" content="Access existing cmux, iTerm2, Cursor, and more from a Linux VM, another Mac, your iPhone, and more.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="img/icon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="stylesheet" href="css/site.css?v=56f2ff1cd1cc">
-<link rel="stylesheet" href="css/features.css?v=b7d164e47d42">
+<link rel="stylesheet" href="css/features.css?v=eba691ff10f4">
 </head>
 <body class="bg-white text-gray-900 antialiased dark:bg-gray-900 dark:text-white">
 
@@ -29,14 +29,136 @@
 
 <main id="top">
 
-<section class="hero">
-  <h1>Access your laptop AI<br class="hidden sm:block"> from your mobile</h1>
-  <p>Without changing your existing workflow, ask the herd on the go. Keep working in cmux, Cursor, or VS Code, and send the next prompt from your phone.</p>
-  <div class="hero-actions">
-    <a href="#install" class="primary-action">Install on your laptop</a>
-    <a href="#beta" class="secondary-action">Get the mobile app</a>
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-copy">
+    <p class="story-eyebrow">Your laptop. Wherever you are.</p>
+    <h1 id="hero-heading">Access your laptop from your mobile</h1>
+    <p>Access existing cmux, iTerm2, Cursor, and more from a Linux VM, another Mac, your iPhone, and more.</p>
+    <div class="hero-actions">
+      <a href="#install" class="primary-action">Install on your laptop</a>
+      <a href="#beta" class="secondary-action">Get the mobile app</a>
+    </div>
+  </div>
+  <div class="session-pair" aria-label="The same Claude session in cmux and on iPhone">
+    <figure class="story-media session-desktop">
+      <a href="img/story/cmux-claude.png" target="_blank" rel="noopener" aria-label="Open the full cmux session screenshot"><img src="img/story/cmux-claude.png" width="2360" height="1520" alt="Claude Code in cmux shows the Trailboard checklist session and its next prompt" fetchpriority="high"></a>
+      <figcaption>Claude in cmux · on your laptop</figcaption>
+    </figure>
+    <figure class="story-media session-handset">
+      <a href="img/story/mobile-followup.png" target="_blank" rel="noopener" aria-label="Open the same Claude session on iPhone"><img src="img/story/mobile-followup.png" width="1206" height="2622" alt="The same Trailboard Claude session on iPhone, ready for the next prompt"></a>
+      <figcaption>The same pane · on iPhone</figcaption>
+    </figure>
   </div>
 </section>
+
+<section id="story" class="story-section" aria-labelledby="story-heading">
+  <div class="story-wrap">
+    <article id="local-agents" class="session-section" aria-labelledby="story-heading">
+      <div class="story-copy">
+        <p class="story-eyebrow">One session. Every screen.</p>
+        <h2 id="story-heading">Same session from anywhere</h2>
+        <p>Keep your existing workflow. Open a session from another computer or your phone, see its output, and send the next prompt. The work carries on on your laptop.</p>
+      </div>
+      <div class="session-gallery">
+        <figure class="story-media">
+          <a href="img/story/vscode-claude.png" target="_blank" rel="noopener" aria-label="Open the full VS Code Claude session screenshot"><img src="img/story/vscode-claude.png" width="1440" height="900" alt="Claude reviews the Trailboard launch checklist in VS Code" loading="lazy"></a>
+          <figcaption>Your original session · VS Code</figcaption>
+        </figure>
+        <figure class="story-media">
+          <a href="img/story/cmux-aih-pane.png" target="_blank" rel="noopener" aria-label="Open the same session in aih pane"><img src="img/story/cmux-aih-pane.png" width="1100" height="740" alt="The same VS Code Claude review opened in a cmux terminal using aih pane" loading="lazy"></a>
+          <figcaption>The same session · aih pane in cmux</figcaption>
+        </figure>
+        <figure class="story-media session-handset">
+          <a href="img/story/android-pane.png" target="_blank" rel="noopener" aria-label="Open the same VS Code session on Android"><img src="img/story/android-pane.png" width="1080" height="2400" alt="AIHerd on Android displays the same Trailboard Claude review from VS Code" loading="lazy"></a>
+          <figcaption>The same session · on Android</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article id="remote-access" class="story-step story-mobile" aria-labelledby="phone-heading">
+      <div class="story-copy">
+        <p class="story-eyebrow">Away from your desk</p>
+        <h3 id="phone-heading">Continue on the go</h3>
+        <p>You step out. Open the AIHerd mobile app and see the same Claude and Cursor sessions. Claude has finished the first version and asks what to do next.</p>
+        <p>Send a follow-up: “Add localStorage persistence so the checklist survives a reload.” The prompt goes back to Claude in the original cmux session.</p>
+        <p class="story-outcome">Your laptop keeps doing the work. Your phone keeps it moving.</p>
+      </div>
+      <div class="story-phones">
+        <figure class="story-media story-phone">
+          <a href="img/story/mobile-sessions.png" target="_blank" rel="noopener" aria-label="Open the full mobile session list"><img src="img/story/mobile-sessions.png" width="1206" height="2622" alt="The native AIHerd iPhone app lists the original cmux Claude session and Cursor agent session from the isolated demo herd" loading="lazy"></a>
+          <figcaption>Both sessions in the native mobile app.</figcaption>
+        </figure>
+        <figure class="story-media story-phone">
+          <a href="img/story/mobile-followup.png" target="_blank" rel="noopener" aria-label="Open the full mobile follow-up screenshot"><img src="img/story/mobile-followup.png" width="1206" height="2622" alt="The native AIHerd iPhone app displays Claude's Trailboard session and the follow-up asking for saving across reloads" loading="lazy"></a>
+          <figcaption>A follow-up for the same Claude session.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="story-step" aria-labelledby="ssh-heading">
+      <div class="story-copy">
+        <p class="story-eyebrow">03 / At another laptop</p>
+        <h3 id="ssh-heading">Your shell survives a change of IP.</h3>
+        <p>Open a shell on your development machine and run the tests against the files your agents changed. All standard tools that use SSH work too, including <code>scp</code>, <code>rsync</code>, and even <code>git</code>.</p>
+        <pre class="story-command"><code>aih ssh demo-laptop
+cd ~/trailboard
+python3 -m unittest -v</code></pre>
+        <p>Switch Wi-Fi or move to a hotspot: your shell keeps running on the herd. <code>aih ssh</code> retries and resumes the same session when connectivity returns, even if your client IP changed.</p>
+        <p>The red banner shows the interruption and retry status. It clears when the connection recovers, and you carry on in the same shell.</p>
+        <details class="story-extra"><summary>How recovery works</summary><p>The remote herd must keep running. The CLI reconnects to it and resumes the existing SSH session, without requiring a fixed client IP.</p></details>
+      </div>
+      <div class="ssh-media">
+        <figure class="story-media">
+          <a href="img/story/ssh-reconnecting.png" target="_blank" rel="noopener" aria-label="Open the full SSH reconnecting banner screenshot"><img src="img/story/ssh-reconnecting.png" width="2200" height="960" alt="Actual red aih ssh connection is stalled banner during an injected network outage, showing elapsed time and automatic retry status" loading="lazy"></a>
+          <figcaption>Real SSH banner during a controlled outage on a scratch herd. The same shell resumed afterward.</figcaption>
+        </figure>
+        <details class="story-extra"><summary>See the five passing tests</summary>
+      <figure class="story-media">
+        <a href="img/story/ssh-tests.png" target="_blank" rel="noopener" aria-label="Open the full SSH test screenshot"><img src="img/story/ssh-tests.png" width="1440" height="900" alt="A separate Linux client connects to demo-laptop with aih ssh and runs all five Trailboard unit tests successfully" loading="lazy"></a>
+        <figcaption>Actual test output over AIHerd SSH from a separate Linux client.</figcaption>
+      </figure>
+        </details>
+      </div>
+    </article>
+
+    <article class="story-step" aria-labelledby="rdp-heading">
+      <div class="story-copy">
+        <p class="story-eyebrow">04 / Time to try the app</p>
+        <h3 id="rdp-heading">Open the desktop. See what they built.</h3>
+        <p>Trailboard is also running on your Linux test VM. Connect with <code>aih rdp</code> and try the app in its browser: move a task, add another, and check how the result feels.</p>
+        <pre class="story-command"><code>aih rdp demo-linux</code></pre>
+        <p class="story-note">RDP opens a Linux or Windows herd's desktop. For your Mac's desktop, use <code>aih vnc demo-laptop</code>.</p>
+      </div>
+      <figure class="story-media">
+        <a href="img/story/rdp-app.png" target="_blank" rel="noopener" aria-label="Open the full RDP desktop screenshot"><img src="img/story/rdp-app.png" width="1440" height="900" alt="A real Linux scratch VM desktop viewed through aih rdp, with the agent-built Trailboard checklist running in its browser" loading="lazy"></a>
+        <figcaption>The real app on an isolated Linux desktop, viewed through AIHerd RDP.</figcaption>
+      </figure>
+    </article>
+
+    <article class="story-step" aria-labelledby="pane-heading">
+      <div class="story-copy">
+        <p class="story-eyebrow">05 / In a Linux VM</p>
+        <h3 id="pane-heading">Your sessions, from a terminal.</h3>
+        <p>Later, you're working in a Linux VM. Use the pane picker to find your laptop's Claude or Cursor session, open it, read its output, and send the next prompt.</p>
+        <pre class="story-command"><code>aih remote demo-laptop pane</code></pre>
+        <p class="story-note"><code>aih pane</code> opens the local herd. <code>aih remote demo-laptop pane</code> reaches the saved laptop connection.</p>
+      </div>
+      <figure class="story-media">
+        <a href="img/story/linux-pane.png" target="_blank" rel="noopener" aria-label="Open the full Linux pane screenshot"><img src="img/story/linux-pane.png" width="1440" height="900" alt="The original Cursor agent conversation is opened in a Linux VM terminal using aih remote demo-laptop pane, with live output and a command input line" loading="lazy"></a>
+        <figcaption>The original Cursor session, opened from the Linux VM's terminal.</figcaption>
+      </figure>
+    </article>
+
+    <div class="story-ending">
+      <p>Back at your desk, continue in the same cmux and Cursor sessions.</p>
+      <a href="#install">Set up your laptop <span aria-hidden="true">→</span></a>
+    </div>
+    <p class="story-provenance">Real screenshots from isolated demo herds, including VS Code, cmux, the native iPhone and Android apps, and a Linux VM. Click any screenshot to enlarge.</p>
+  </div>
+</section>
+
+
+
 
 <section id="install" class="quick-install" aria-labelledby="laptop-setup-heading">
   <div class="compact-wrap">
@@ -112,116 +234,6 @@ aih join</code></pre>
     </div>
   </div>
 </section>
-
-<section id="story" class="story-section" aria-labelledby="story-heading">
-  <div class="story-wrap">
-    <header class="story-intro">
-      <p class="story-eyebrow">One project. The same sessions.</p>
-      <h2 id="story-heading">Build at your desk.<br>Keep going anywhere.</h2>
-      <p>You're building Trailboard, a small launch checklist. Claude handles the app in cmux. A second session in Cursor writes the tests. Here's how the work follows you through the day.</p>
-    </header>
-
-    <article id="local-agents" class="story-step" aria-labelledby="desk-heading">
-      <div class="story-copy">
-        <p class="story-eyebrow">01 / At your desk</p>
-        <h3 id="desk-heading">Start where you already work.</h3>
-        <p>Open Claude Code in cmux and start a Cursor session alongside it. Ask Claude to build the checklist and Cursor to cover the task counts with tests. AIHerd follows both sessions in the tools you already use.</p>
-      </div>
-      <div class="story-pair">
-        <figure class="story-media">
-          <a href="img/story/cmux-claude.png" target="_blank" rel="noopener" aria-label="Open the full cmux screenshot"><img src="img/story/cmux-claude.png" width="2360" height="1520" alt="Claude Code in a dedicated cmux workspace explains the Trailboard app it built and asks what to add next" loading="lazy"></a>
-          <figcaption>Claude builds Trailboard in cmux.</figcaption>
-        </figure>
-        <figure class="story-media">
-          <a href="img/story/cursor-tests.png" target="_blank" rel="noopener" aria-label="Open the full Cursor screenshot"><img src="img/story/cursor-tests.png" width="2560" height="1600" alt="The actual Cursor conversation shows test_tasks.py added and all five Trailboard tests passing" loading="lazy"></a>
-          <figcaption>Cursor adds five tests. All five pass.</figcaption>
-        </figure>
-      </div>
-    </article>
-
-    <article id="remote-access" class="story-step story-mobile" aria-labelledby="phone-heading">
-      <div class="story-copy">
-        <p class="story-eyebrow">02 / Away from your desk</p>
-        <h3 id="phone-heading">Check in from your phone.</h3>
-        <p>You step out. Open the AIHerd mobile app and see the same Claude and Cursor sessions. Claude has finished the first version and asks what to do next.</p>
-        <p>Send a follow-up: “Add localStorage persistence so the checklist survives a reload.” The prompt goes back to Claude in the original cmux session.</p>
-        <p class="story-outcome">Your laptop keeps doing the work. Your phone keeps it moving.</p>
-      </div>
-      <div class="story-phones">
-        <figure class="story-media story-phone">
-          <a href="img/story/mobile-sessions.png" target="_blank" rel="noopener" aria-label="Open the full mobile session list"><img src="img/story/mobile-sessions.png" width="1206" height="2622" alt="The native AIHerd iPhone app lists the original cmux Claude session and Cursor agent session from the isolated demo herd" loading="lazy"></a>
-          <figcaption>Both sessions in the native mobile app.</figcaption>
-        </figure>
-        <figure class="story-media story-phone">
-          <a href="img/story/mobile-followup.png" target="_blank" rel="noopener" aria-label="Open the full mobile follow-up screenshot"><img src="img/story/mobile-followup.png" width="1206" height="2622" alt="The native AIHerd iPhone app displays Claude's Trailboard session and the follow-up asking for saving across reloads" loading="lazy"></a>
-          <figcaption>A follow-up for the same Claude session.</figcaption>
-        </figure>
-      </div>
-    </article>
-
-    <article class="story-step" aria-labelledby="ssh-heading">
-      <div class="story-copy">
-        <p class="story-eyebrow">03 / At another laptop</p>
-        <h3 id="ssh-heading">Your shell survives a change of IP.</h3>
-        <p>Open a shell on your development machine and run the tests against the files your agents changed. All standard tools that use SSH work too, including <code>scp</code>, <code>rsync</code>, and even <code>git</code>.</p>
-        <pre class="story-command"><code>aih ssh demo-laptop
-cd ~/trailboard
-python3 -m unittest -v</code></pre>
-        <p>Switch Wi-Fi or move to a hotspot: your shell keeps running on the herd. <code>aih ssh</code> retries and resumes the same session when connectivity returns, even if your client IP changed.</p>
-        <p>The red banner shows the interruption and retry status. It clears when the connection recovers, and you carry on in the same shell.</p>
-        <details class="story-extra"><summary>How recovery works</summary><p>The remote herd must keep running. The CLI reconnects to it and resumes the existing SSH session, without requiring a fixed client IP.</p></details>
-      </div>
-      <div class="ssh-media">
-        <figure class="story-media">
-          <a href="img/story/ssh-reconnecting.png" target="_blank" rel="noopener" aria-label="Open the full SSH reconnecting banner screenshot"><img src="img/story/ssh-reconnecting.png" width="2200" height="960" alt="Actual red aih ssh connection is stalled banner during an injected network outage, showing elapsed time and automatic retry status" loading="lazy"></a>
-          <figcaption>Real SSH banner during a controlled outage on a scratch herd. The same shell resumed afterward.</figcaption>
-        </figure>
-        <details class="story-extra"><summary>See the five passing tests</summary>
-      <figure class="story-media">
-        <a href="img/story/ssh-tests.png" target="_blank" rel="noopener" aria-label="Open the full SSH test screenshot"><img src="img/story/ssh-tests.png" width="1440" height="900" alt="A separate Linux client connects to demo-laptop with aih ssh and runs all five Trailboard unit tests successfully" loading="lazy"></a>
-        <figcaption>Actual test output over AIHerd SSH from a separate Linux client.</figcaption>
-      </figure>
-        </details>
-      </div>
-    </article>
-
-    <article class="story-step" aria-labelledby="rdp-heading">
-      <div class="story-copy">
-        <p class="story-eyebrow">04 / Time to try the app</p>
-        <h3 id="rdp-heading">Open the desktop. See what they built.</h3>
-        <p>Trailboard is also running on your Linux test VM. Connect with <code>aih rdp</code> and try the app in its browser: move a task, add another, and check how the result feels.</p>
-        <pre class="story-command"><code>aih rdp demo-linux</code></pre>
-        <p class="story-note">RDP opens a Linux or Windows herd's desktop. For your Mac's desktop, use <code>aih vnc demo-laptop</code>.</p>
-      </div>
-      <figure class="story-media">
-        <a href="img/story/rdp-app.png" target="_blank" rel="noopener" aria-label="Open the full RDP desktop screenshot"><img src="img/story/rdp-app.png" width="1440" height="900" alt="A real Linux scratch VM desktop viewed through aih rdp, with the agent-built Trailboard checklist running in its browser" loading="lazy"></a>
-        <figcaption>The real app on an isolated Linux desktop, viewed through AIHerd RDP.</figcaption>
-      </figure>
-    </article>
-
-    <article class="story-step" aria-labelledby="pane-heading">
-      <div class="story-copy">
-        <p class="story-eyebrow">05 / In a Linux VM</p>
-        <h3 id="pane-heading">Your sessions, from a terminal.</h3>
-        <p>Later, you're working in a Linux VM. Use the pane picker to find your laptop's Claude or Cursor session, open it, read its output, and send the next prompt.</p>
-        <pre class="story-command"><code>aih remote demo-laptop pane</code></pre>
-        <p class="story-note"><code>aih pane</code> opens the local herd. <code>aih remote demo-laptop pane</code> reaches the saved laptop connection.</p>
-      </div>
-      <figure class="story-media">
-        <a href="img/story/linux-pane.png" target="_blank" rel="noopener" aria-label="Open the full Linux pane screenshot"><img src="img/story/linux-pane.png" width="1440" height="900" alt="The original Cursor agent conversation is opened in a Linux VM terminal using aih remote demo-laptop pane, with live output and a command input line" loading="lazy"></a>
-        <figcaption>The original Cursor session, opened from the Linux VM's terminal.</figcaption>
-      </figure>
-    </article>
-
-    <div class="story-ending">
-      <p>Back at your desk, continue in the same cmux and Cursor sessions.</p>
-      <a href="#install">Set up your laptop <span aria-hidden="true">→</span></a>
-    </div>
-    <p class="story-provenance">Real screenshots from isolated demo herds, including the native iPhone app in iOS Simulator and a Linux VM. Click any screenshot to enlarge.</p>
-  </div>
-</section>
-
-
 
 
 <section id="beta" class="mobile-setup" aria-labelledby="phone-setup-heading">
