@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="stylesheet" href="css/site.css?v=56f2ff1cd1cc">
 <link rel="stylesheet" href="css/features.css?v=eba691ff10f4">
-<link rel="stylesheet" href="css/canvas.css?v=1a4225ee2277">
+<link rel="stylesheet" href="css/canvas.css?v=b85501288b3a">
 </head>
 <body class="option canvas">
 
@@ -23,6 +23,7 @@
     <div class="section-links">
       <a href="#install">Laptop setup</a>
       <a href="#story">Typical Use Case</a>
+      <a href="#terminal">Terminal</a>
       <a href="#beta">Mobile apps</a>
     </div>
   </nav>
@@ -152,6 +153,35 @@ python3 -m unittest -v</code></pre>
 
 
 
+
+<section id="terminal" class="terminal-section" aria-labelledby="terminal-heading">
+  <div class="terminal-layout">
+    <div class="terminal-copy">
+      <p class="terminal-eyebrow">For the love of the command line</p>
+      <h2 id="terminal-heading">Terminal<br> Affectionado</h2>
+      <p class="terminal-lead">Even if you don't care about AI at all.</p>
+      <p>AIHerd's headless daemon can connect you to any machine with internet access. Zero configuration, no NAT piercing, nil port configuration. Pair once and you're good.</p>
+      <p>Standard <code>ssh</code>, <code>rsync</code>, and <code>scp</code> work, but they survive Wi-Fi disconnections. Spin up a Docker container, a Kubernetes pod, or a VM. As long as it has internet access, you'll get there with your standard CLI tools.</p>
+      <a href="#install" class="terminal-action">Set up your machine <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="terminal-demo">
+      <div class="terminal-window" aria-label="CLI command examples">
+        <div class="terminal-titlebar"><span class="terminal-lights" aria-hidden="true"><i></i><i></i><i></i></span><span>your terminal / anywhere</span></div>
+        <div class="terminal-commands">
+          <p class="terminal-comment"># Your shell. Your tools.</p>
+          <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih ssh linux-demo</code></pre><span class="terminal-command-label">Connect</span></div>
+          <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih rsync -av ./project/ linux-demo:~/project/</code></pre><span class="terminal-command-label">Sync</span></div>
+          <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih scp release.tar.gz linux-demo:~/</code></pre><span class="terminal-command-label">Copy</span></div>
+          <p class="terminal-footnote">Pair once. Pick up on the next Wi-Fi.</p>
+        </div>
+      </div>
+      <div class="terminal-destinations" aria-label="Reach your environments over the internet">
+        <span class="terminal-origin">Your CLI</span><span class="terminal-route" aria-hidden="true">→</span><span class="terminal-network">Internet</span><span class="terminal-route" aria-hidden="true">→</span><div class="terminal-targets"><span>Docker</span><span>Kubernetes</span><span>VM</span></div>
+      </div>
+      <p class="terminal-caption">One familiar way in, wherever the machine runs.</p>
+    </div>
+  </div>
+</section>
 
 <section id="install" class="quick-install" aria-labelledby="laptop-setup-heading">
   <div class="compact-wrap">

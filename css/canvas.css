@@ -67,3 +67,39 @@
 .canvas .install-requirements,.canvas .story-extra > p,.canvas #beta-form > p { color:var(--muted); }
 .canvas #beta-form input,.canvas #beta-form select { background:#fff; color:var(--ink); border-color:var(--line); }
 .canvas #beta-thanks { background:#e9f6ee; color:#276443; }
+
+/* A terminal-focused interlude within the Canvas product story. */
+.canvas .terminal-section { background:#17213d; color:#f2f4ff; padding:96px 7%; scroll-margin-top:24px; }
+.terminal-layout { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:7%; align-items:center; max-width:1440px; margin:auto; }
+.terminal-eyebrow { color:#a7b7ff; font-size:.72rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; }
+.terminal-copy h2 { margin:16px 0 24px; font-size:clamp(2.2rem,4.6vw,4.5rem); font-weight:800; line-height:1; letter-spacing:-.055em; }
+.terminal-copy > p:not(.terminal-eyebrow) { margin-top:16px; color:#c3cce4; font-size:1rem; line-height:1.75; }
+.terminal-copy > p.terminal-lead { color:#fff; font-size:1.2rem; font-weight:600; }
+.terminal-copy code { color:#e0e6ff; background:#ffffff12; border-radius:4px; padding:2px 5px; }
+.canvas .terminal-action { display:inline-flex; align-items:center; gap:24px; margin-top:28px; padding:13px 20px; border:1px solid #9aabfb; border-radius:999px; color:#fff; font-size:.9rem; font-weight:600; }
+.canvas .terminal-action:hover { background:#ffffff12; }
+.terminal-action:focus-visible { outline:3px solid #b9c5ff; outline-offset:4px; }
+.terminal-demo { min-width:0; }
+.terminal-window { background:#0c1327; border:1px solid #455076; border-radius:16px; overflow:hidden; box-shadow:0 28px 60px -25px #050b1c; }
+.terminal-titlebar { display:flex; align-items:center; gap:20px; padding:17px 20px; border-bottom:1px solid #27314c; color:#9caacd; font: .72rem ui-monospace,SFMono-Regular,Menlo,monospace; }
+.terminal-lights { display:flex; gap:6px; }
+.terminal-lights i { width:8px; height:8px; border-radius:50%; background:#556384; }
+.terminal-lights i:first-child { background:#c57e91; }
+.terminal-lights i:nth-child(2) { background:#d0b585; }
+.terminal-lights i:last-child { background:#8ebca5; }
+.terminal-commands { padding:28px 24px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+.terminal-comment { margin-bottom:22px; color:#8d9cbc; font-size:.8rem; }
+.terminal-command-row { display:grid; grid-template-columns:auto minmax(0,1fr); gap:9px; margin-top:23px; font-size:.85rem; line-height:1.7; }
+.terminal-prompt { color:#a5b6ff; }
+.terminal-command-row pre { min-width:0; white-space:pre-wrap; overflow-wrap:anywhere; margin:0; }
+.terminal-command-row code { padding:0; background:none; color:#e4eaff; font:inherit; }
+.terminal-command-label { grid-column:2; color:#8898be; font-size:.65rem; text-transform:uppercase; letter-spacing:.12em; }
+.terminal-footnote { margin-top:30px; padding-top:20px; border-top:1px solid #27314c; color:#a6d4ba; font-size:.75rem; line-height:1.6; }
+.terminal-destinations { display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:30px; font: .75rem ui-monospace,SFMono-Regular,Menlo,monospace; }
+.terminal-origin,.terminal-network { color:#d4ddfa; }
+.terminal-route { color:#8497cf; }
+.terminal-targets { display:flex; gap:6px; flex-wrap:wrap; }
+.terminal-targets span { padding:6px 9px; border:1px solid #455076; border-radius:6px; color:#cbd6ff; }
+.terminal-caption { margin-top:14px; text-align:center; color:#9daed3; font-size:.75rem; line-height:1.5; }
+@media(max-width:900px) { .terminal-layout { grid-template-columns:1fr; gap:40px; } .terminal-copy { max-width:650px; } .terminal-copy h2 br { display:none; } .terminal-demo { width:100%; } }
+@media(max-width:600px) { .canvas .terminal-section { padding:60px 5%; } .terminal-copy h2 { font-size:2.6rem; } .terminal-copy h2 br { display:block; } .terminal-commands { padding:24px 18px; } .terminal-command-row { font-size:.78rem; } .terminal-titlebar { padding:15px; gap:14px; } .terminal-destinations { gap:9px; } .terminal-targets { width:100%; justify-content:center; } }
