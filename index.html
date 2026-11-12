@@ -103,8 +103,7 @@
         <pre class="story-command"><code>aih ssh demo-laptop
 cd ~/trailboard
 python3 -m unittest -v</code></pre>
-        <p>Switch Wi-Fi or move to a hotspot: your shell keeps running on the herd. <code>aih ssh</code> retries and resumes the same session when connectivity returns, even if your client IP changed.</p>
-        <p>The red banner shows the interruption and retry status. It clears when the connection recovers, and you carry on in the same shell.</p>
+        <p>The <code>ssh</code> is the same client, but the connection survives even when disconnected for a while. The red banner indicated disconnection, but session revives in next Wi-Fi.</p>
         <details class="story-extra"><summary>How recovery works</summary><p>The remote herd must keep running. The CLI reconnects to it and resumes the existing SSH session, without requiring a fixed client IP.</p></details>
       </div>
       <div class="ssh-media">
@@ -125,8 +124,8 @@ python3 -m unittest -v</code></pre>
       <div class="story-copy">
         <p class="story-eyebrow">04 / Time to try the app</p>
         <h3 id="rdp-heading">Open the desktop. See what they built.</h3>
-        <p>Trailboard is also running on your Linux test VM. Connect with <code>aih rdp</code> and try the app in its browser: move a task, add another, and check how the result feels.</p>
-        <pre class="story-command"><code>aih rdp demo-linux</code></pre>
+        <p>AIHerd works on your linux machine, with <code>aih rdp linux-demo</code> see how things look like in the desktop. For mac <code>aih vnc</code> works.</p>
+        <pre class="story-command"><code>aih rdp linux-demo</code></pre>
         <p class="story-note">RDP opens a Linux or Windows herd's desktop. For your Mac's desktop, use <code>aih vnc demo-laptop</code>.</p>
       </div>
       <figure class="story-media">
