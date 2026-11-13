@@ -104,10 +104,14 @@
 @media(max-width:900px) { .terminal-layout { grid-template-columns:1fr; gap:40px; } .terminal-copy { max-width:650px; } .terminal-copy h2 br { display:none; } .terminal-demo { width:100%; } }
 @media(max-width:600px) { .canvas .terminal-section { padding:60px 5%; } .terminal-copy h2 { font-size:2.6rem; } .terminal-copy h2 br { display:block; } .terminal-commands { padding:24px 18px; } .terminal-command-row { font-size:.78rem; } .terminal-titlebar { padding:15px; gap:14px; } .terminal-destinations { gap:9px; } .terminal-targets { width:100%; justify-content:center; } }
 
-.terminal-pane-example { max-width:1440px; margin:56px auto 0; }
-.terminal-pane-example a { display:block; border-radius:12px; }
+.terminal-preview-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:42px; max-width:1180px; margin:76px auto 10px; padding:0 12px; }
+.terminal-pane-example { min-width:0; margin:0; }
+.terminal-pane-example a { display:block; border-radius:12px; box-shadow:0 24px 50px -20px #050b1c; }
+.terminal-image-example a { transform:rotate(-3deg); }
+.terminal-markdown-example a { transform:rotate(3deg); }
+.terminal-markdown-example { padding-top:26px; }
 .terminal-pane-example a:focus-visible { outline:3px solid #b9c5ff; outline-offset:5px; }
 .terminal-pane-example img { display:block; width:100%; height:auto; border:1px solid #455076; border-radius:12px; }
-.terminal-pane-example figcaption { margin-top:14px; color:#b0bddb; font-size:.8rem; line-height:1.6; }
-.terminal-pane-example figcaption code { color:#dfe6ff; background:#ffffff12; padding:2px 5px; border-radius:4px; }
-@media(max-width:600px) { .terminal-pane-example { margin-top:36px; } .terminal-pane-example img { border-radius:8px; } }
+.terminal-pane-example figcaption { margin-top:28px; color:#b0bddb; font-size:.8rem; line-height:1.6; }
+.terminal-pane-example figcaption span { display:block; margin-bottom:5px; color:#e2e8ff; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+@media(max-width:600px) { .terminal-preview-gallery { gap:18px; margin-top:48px; padding:0 5px; } .terminal-markdown-example { padding-top:16px; } .terminal-pane-example img { border-radius:6px; } .terminal-pane-example figcaption { margin-top:18px; font-size:.72rem; } .terminal-pane-example figcaption span { font-size:.65rem; letter-spacing:.03em; } }
