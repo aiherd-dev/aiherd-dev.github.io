@@ -103,3 +103,11 @@
 .terminal-caption { margin-top:14px; text-align:center; color:#9daed3; font-size:.75rem; line-height:1.5; }
 @media(max-width:900px) { .terminal-layout { grid-template-columns:1fr; gap:40px; } .terminal-copy { max-width:650px; } .terminal-copy h2 br { display:none; } .terminal-demo { width:100%; } }
 @media(max-width:600px) { .canvas .terminal-section { padding:60px 5%; } .terminal-copy h2 { font-size:2.6rem; } .terminal-copy h2 br { display:block; } .terminal-commands { padding:24px 18px; } .terminal-command-row { font-size:.78rem; } .terminal-titlebar { padding:15px; gap:14px; } .terminal-destinations { gap:9px; } .terminal-targets { width:100%; justify-content:center; } }
+
+.terminal-pane-example { max-width:1440px; margin:56px auto 0; }
+.terminal-pane-example a { display:block; border-radius:12px; }
+.terminal-pane-example a:focus-visible { outline:3px solid #b9c5ff; outline-offset:5px; }
+.terminal-pane-example img { display:block; width:100%; height:auto; border:1px solid #455076; border-radius:12px; }
+.terminal-pane-example figcaption { margin-top:14px; color:#b0bddb; font-size:.8rem; line-height:1.6; }
+.terminal-pane-example figcaption code { color:#dfe6ff; }
+@media(max-width:600px) { .terminal-pane-example { margin-top:36px; } .terminal-pane-example img { border-radius:8px; } }

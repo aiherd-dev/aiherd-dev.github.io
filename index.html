@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="stylesheet" href="css/site.css?v=56f2ff1cd1cc">
 <link rel="stylesheet" href="css/features.css?v=eba691ff10f4">
-<link rel="stylesheet" href="css/canvas.css?v=b85501288b3a">
+<link rel="stylesheet" href="css/canvas.css?v=e6399b707168">
 </head>
 <body class="option canvas">
 
@@ -162,6 +162,7 @@ python3 -m unittest -v</code></pre>
       <p class="terminal-lead">Even if you don't care about AI at all.</p>
       <p>AIHerd's headless daemon can connect you to any machine with internet access. Zero configuration, no NAT piercing, nil port configuration. Pair once and you're good.</p>
       <p>Standard <code>ssh</code>, <code>rsync</code>, and <code>scp</code> work, but they survive Wi-Fi disconnections. Spin up a Docker container, a Kubernetes pod, or a VM. As long as it has internet access, you'll get there with your standard CLI tools.</p>
+      <p>With <code>aih pane</code>, watch existing SSH sessions and preview images, right in your terminal.</p>
       <a href="#install" class="terminal-action">Set up your machine <span aria-hidden="true">↗</span></a>
     </div>
     <div class="terminal-demo">
@@ -172,6 +173,7 @@ python3 -m unittest -v</code></pre>
           <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih ssh linux-demo</code></pre><span class="terminal-command-label">Connect</span></div>
           <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih rsync -av ./project/ linux-demo:~/project/</code></pre><span class="terminal-command-label">Sync</span></div>
           <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih scp release.tar.gz linux-demo:~/</code></pre><span class="terminal-command-label">Copy</span></div>
+          <div class="terminal-command-row"><span class="terminal-prompt" aria-hidden="true">$</span><pre><code>aih pane</code></pre><span class="terminal-command-label">Watch &amp; preview</span></div>
           <p class="terminal-footnote">Pair once. Pick up on the next Wi-Fi.</p>
         </div>
       </div>
@@ -181,6 +183,10 @@ python3 -m unittest -v</code></pre>
       <p class="terminal-caption">One familiar way in, wherever the machine runs.</p>
     </div>
   </div>
+  <figure class="terminal-pane-example">
+    <a href="img/story/pane-ssh-image-preview.png" target="_blank" rel="noopener" aria-label="Open the full aih pane SSH session and image preview screenshot"><img src="img/story/pane-ssh-image-preview.png" width="1380" height="520" alt="Two real aih pane views in cmux: an existing local SSH session on the left and its desktop-preview.png image displayed in the terminal on the right" loading="lazy"></a>
+    <figcaption>A local SSH session watched with <code>aih pane</code>, alongside its image preview.</figcaption>
+  </figure>
 </section>
 
 <section id="install" class="quick-install" aria-labelledby="laptop-setup-heading">
