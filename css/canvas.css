@@ -109,5 +109,5 @@
 .terminal-pane-example a:focus-visible { outline:3px solid #b9c5ff; outline-offset:5px; }
 .terminal-pane-example img { display:block; width:100%; height:auto; border:1px solid #455076; border-radius:12px; }
 .terminal-pane-example figcaption { margin-top:14px; color:#b0bddb; font-size:.8rem; line-height:1.6; }
-.terminal-pane-example figcaption code { color:#dfe6ff; }
+.terminal-pane-example figcaption code { color:#dfe6ff; background:#ffffff12; padding:2px 5px; border-radius:4px; }
 @media(max-width:600px) { .terminal-pane-example { margin-top:36px; } .terminal-pane-example img { border-radius:8px; } }
