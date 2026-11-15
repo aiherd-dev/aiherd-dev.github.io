@@ -6,7 +6,7 @@
   <title>Remote access — AIHerd</title>
   <meta name="description" content="Watch AIHerd preview remote images and Markdown, keep an SSH session through an internet interruption, and connect SFTP clients such as Cyberduck through a local listener.">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="stylesheet" href="/css/access.css">
+  <link rel="stylesheet" href="/css/access.css?v=e57f92cca6dd">
 </head>
 <body>
   <header>
@@ -21,7 +21,7 @@
       <h1>Your terminal.<br>Wherever you are.</h1>
       <p class="lead">Reach a paired machine, open its panes, and preview its files. Keep your shell when the internet drops.</p>
       <div class="actions"><a class="button" href="#pane">Watch it work <span aria-hidden="true">↓</span></a><a href="/#install">Set up AIHerd <span aria-hidden="true">↗</span></a></div>
-      <div class="route" aria-label="Connect from your terminal through the internet to leibo-asus"><span>Your terminal</span><span aria-hidden="true">→</span><span>Internet</span><span aria-hidden="true">→</span><code>leibo-asus</code></div>
+      <div class="route" aria-label="Connect from your terminal through the internet to your laptop"><span>Your terminal</span><span aria-hidden="true">→</span><span>Internet</span><span aria-hidden="true">→</span><code>Your laptop <span aria-hidden="true">💻</span></code></div>
     </section>
 
     <section class="demo pane-demo" id="pane" aria-labelledby="pane-title">
@@ -32,7 +32,6 @@
           <track kind="captions" src="/video/access-remote-pane.vtt" srclang="en" label="English">
           <p><a href="/video/access-remote-pane.mp4">Download the remote pane video.</a></p>
         </video>
-        <figcaption>Recorded with AIHerd on a paired <code>leibo-asus</code>. English subtitles are included.</figcaption>
       </figure>
       <div class="details-grid"><div><h3>One command to your panes</h3><pre><code>aih remote leibo-asus pane</code></pre><p>Choose the session you want to follow. Its output stays on the remote machine and appears in your terminal.</p></div><div><h3>Open the image it mentions</h3><p>In the pane viewer, press <kbd>Ctrl</kbd> + <kbd>]</kbd>, then <kbd>f</kbd> to browse the remote files. Choose the image named in the shell output and press Enter. Press any key to close the image.</p></div></div>
       <details><summary>Video transcript</summary><p>Connect to the paired machine leibo-asus. Choose the remote session in the pane picker. Open the demo SSH shell, which names a PNG on the remote machine. Use Ctrl-] then f to browse remote files and view that image inside the terminal.</p></details>
@@ -60,7 +59,7 @@
           <track kind="captions" src="/video/access-ssh-recovery.vtt" srclang="en" label="English">
           <p><a href="/video/access-ssh-recovery.mp4">Download the SSH recovery video.</a></p>
         </video>
-        <figcaption>A real Wi-Fi interruption and recovery in the same SSH shell. The reconnection wait is shortened and labeled. English subtitles are included.</figcaption>
+        <figcaption>A real Wi-Fi interruption and recovery in the same SSH shell. The reconnection wait is shortened and labeled.</figcaption>
       </figure>
       <div class="details-grid"><div><h3>Your usual SSH client</h3><pre><code>aih ssh leibo-asus</code></pre><p>AIHerd uses OpenSSH. At the beginning of a new line, type <kbd>~</kbd><kbd>?</kbd> to see its standard escape help, as shown in the video.</p></div><div><h3>Pick up when the network returns</h3><p>The banner tells you when the connection is stalled and retrying. When connectivity returns, the existing session resumes. The remote machine and its herd must keep running.</p></div></div>
       <details><summary>Video transcript</summary><p>Open an SSH shell on leibo-asus and record its process ID and a shell variable. Type ~? on a new line to show OpenSSH escape help. Turn off the internet connection. The red AIHerd banner reports the stalled connection. Restore the internet, then print the process ID and variable again: both survive in the same shell.</p></details>
@@ -68,7 +67,7 @@
     <section class="demo clients-demo" id="clients" aria-labelledby="clients-title">
       <div class="section-intro"><p class="eyebrow">04 / Bring your SSH-compatible client</p><h2 id="clients-title">Cyberduck.<br>Same remote files.</h2><p>Open a local SSH listener for a paired herd. SSH-compatible clients can connect to it like an SSH server, while AIHerd carries the connection to <code>leibo-asus</code>.</p></div>
       <div class="details-grid listener-grid">
-        <div><h3>1. Start the listener</h3><pre><code>aih ssh leibo-asus --listen 127.0.0.1:2222</code></pre><p>Leave this command running on the same computer as Cyberduck. It prints the local address it is listening on. If port 2222 is busy, choose another port and use that port in your client.</p><p class="command-note"><code>--listen</code> opens the listener. <code>-l</code> (or <code>--list</code>) lists shells kept on the remote herd.</p><p>The example binds to this computer's loopback address. Local authentication is handled by AIHerd's existing pairing; the listener grants access to anyone who can reach it. Stop it with <kbd>Ctrl</kbd> + <kbd>C</kbd> when finished.</p></div>
+        <div><h3>1. Start the listener</h3><pre><code>aih ssh leibo-asus --listen 127.0.0.1:2222</code></pre><p>Leave this command running on the same computer as Cyberduck. It prints the local address it is listening on. If port 2222 is busy, choose another port and use that port in your client.</p></div>
         <div class="client-card"><h3>2. Open a Cyberduck connection</h3><p>Choose <strong>Open Connection</strong> and enter:</p><table><caption>Cyberduck settings for this listener</caption><tbody><tr><th scope="row">Protocol</th><td>SFTP (SSH File Transfer Protocol)</td></tr><tr><th scope="row">Server</th><td><code>127.0.0.1</code></td></tr><tr><th scope="row">Port</th><td><code>2222</code></td></tr><tr><th scope="row">Username</th><td><code>aih</code></td></tr><tr><th scope="row">Password</th><td>Leave empty</td></tr><tr><th scope="row">SSH private key</th><td>None required</td></tr></tbody></table><p>Click <strong>Connect</strong> to browse the remote machine's files. The remote herd needs an SFTP server available. See <a href="https://docs.cyberduck.io/protocols/sftp/" target="_blank" rel="noopener">Cyberduck's SFTP documentation <span aria-hidden="true">↗</span></a>.</p></div>
       </div>
       <div class="details-grid"><div><h3>Use the same listener with OpenSSH</h3><pre><code>ssh -p 2222 aih@127.0.0.1

@@ -78,6 +78,8 @@
 .terminal-copy code { color:#e0e6ff; background:#ffffff12; border-radius:4px; padding:2px 5px; }
 .canvas .terminal-action { display:inline-flex; align-items:center; gap:24px; margin-top:28px; padding:13px 20px; border:1px solid #9aabfb; border-radius:999px; color:#fff; font-size:.9rem; font-weight:600; }
 .canvas .terminal-action:hover { background:#ffffff12; }
+.terminal-actions { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:28px; }
+.canvas .terminal-actions .terminal-action { margin-top:0; gap:12px; }
 .terminal-action:focus-visible { outline:3px solid #b9c5ff; outline-offset:4px; }
 .terminal-demo { min-width:0; }
 .terminal-window { background:#0c1327; border:1px solid #455076; border-radius:16px; overflow:hidden; box-shadow:0 28px 60px -25px #050b1c; }
