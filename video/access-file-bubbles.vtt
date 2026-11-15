@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.000
+This remote pane mentions preview.png and NOTES.md.
+
+2
+00:00:04.000 --> 00:00:09.040
+Press Ctrl-] then b to open the detected file bubbles.
+
+3
+00:00:09.040 --> 00:00:15.080
+Press 1 to preview the image directly from its bubble.
+
+4
+00:00:15.080 --> 00:00:18.120
+Press any key to return to the same bubbles.
+
+5
+00:00:18.120 --> 00:00:25.160
+Press 2 to read the Markdown file from its bubble.
+
+6
+00:00:25.160 --> 00:00:30.383
+Press q to close the text pager, then q to return to the pane.

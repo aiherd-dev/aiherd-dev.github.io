@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.050
+Connected with aih ssh leibo-asus. Save a variable and the shell PID.
+
+2
+00:00:04.050 --> 00:00:09.100
+This is OpenSSH: type ~? at the start of a line for escape help.
+
+3
+00:00:09.100 --> 00:00:16.380
+Turn Wi-Fi off. AIHerd keeps the remote shell while retrying.
+
+4
+00:00:16.380 --> 00:00:20.470
+The red banner reports the stalled connection and automatic retries.
+
+5
+00:00:20.470 --> 00:00:26.000
+Wi-Fi is back on. AIHerd retries until the network is ready.
+
+6
+00:00:26.000 --> 00:00:32.000
+Reconnection wait shortened. The same SSH shell continues after recovery.
+
+7
+00:00:32.000 --> 00:00:40.000
+The PID is still 2358897, and the saved variable is still here.

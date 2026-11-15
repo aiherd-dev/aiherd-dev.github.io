@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.060
+An SSH command names an image on leibo-asus.
+
+2
+00:00:04.060 --> 00:00:09.180
+Connect to the paired machine with aih remote leibo-asus pane.
+
+3
+00:00:09.180 --> 00:00:13.240
+Select the remote SSH shell and open its live output.
+
+4
+00:00:13.240 --> 00:00:21.450
+Press Ctrl-] then f to browse files on the remote machine.
+
+5
+00:00:21.450 --> 00:00:28.560
+The image is read from the remote machine and shown in the terminal.
+
+6
+00:00:28.560 --> 00:00:31.665
+Press any key to return to the same remote pane.
