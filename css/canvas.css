@@ -117,3 +117,10 @@
 .terminal-pane-example figcaption { margin-top:28px; color:#b0bddb; font-size:.8rem; line-height:1.6; }
 .terminal-pane-example figcaption span { display:block; margin-bottom:5px; color:#e2e8ff; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
 @media(max-width:600px) { .terminal-preview-gallery { gap:18px; margin-top:48px; padding:0 5px; } .terminal-markdown-example { padding-top:16px; } .terminal-pane-example img { border-radius:6px; } .terminal-pane-example figcaption { margin-top:18px; font-size:.72rem; } .terminal-pane-example figcaption span { font-size:.65rem; letter-spacing:.03em; } }
+
+/* Keep the App Store link compact above the Android setup. */
+.option .download-cards { grid-template-columns: 1fr; }
+.option .download-card:first-child { padding: 0 0 14px; border: 0; border-bottom: 1px solid #94a3b8; border-radius: 0; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.app-store-badge { display: inline-block; line-height: 0; border-radius: 7px; }
+.app-store-badge img { display: block; width: 150px; height: 50px; }
+.app-store-badge:focus-visible { outline: 3px solid #10b981; outline-offset: 4px; }
