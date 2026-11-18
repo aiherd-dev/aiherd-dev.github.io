@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Install a private Linux relay · AIHerd</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/access.css">
+  <style>
+    .hero{padding-block:clamp(40px,6vw,80px)}.hero h1{font-size:clamp(2.8rem,6vw,5.5rem)}
+    main section{padding:48px 7%}main .instructions{max-width:1000px}
+    pre{background:#17213d;color:#f2f4ff;border-radius:10px;padding:20px;overflow-x:auto;line-height:1.6}
+    p code{overflow-wrap:anywhere}.command{max-width:760px}.instructions h2{font-size:2rem}
+  </style>
+</head>
+<body>
+  <header><nav aria-label="Site"><a class="brand" href="/"><img src="/img/icon.png" width="32" height="32" alt="">AIHerd</a></nav></header>
+  <main>
+    <section class="hero">
+      <h1>Install a private Linux relay</h1>
+      <p class="lead">Connect the Linux host to your tailnet, then run this command as the user who will own the relay.</p>
+      <pre class="command"><code>curl -fsSLo install-relay.sh https://aiherd.dev/install-relay.sh &amp;&amp; bash install-relay.sh</code></pre>
+      <p>Supports x86-64 and ARM64 Linux with a systemd user session, Tailscale, Bash, curl and Python 3. Enable MagicDNS and HTTPS certificates on the tailnet.</p>
+    </section>
+    <section class="instructions">
+      <h2>Connect a herd</h2>
+      <p>The installer prints the private HTTPS origin and the path to <code>genesis.json</code>. Give this public profile to the person configuring your organization’s herd. It contains the relay’s public key and tailnet name. Back up the adjacent <code>relay.key</code> privately on the server.</p>
+      <p>A new installation generates a new relay identity. For a relay move, restore the original <code>identity/</code> directory under <code>~/.local/share/aih-relay/</code> before installing, then run <code>aih org-relay set NEW_HTTPS_ORIGIN</code> on the herd and restart it.</p>
+      <h2>Operate the service</h2>
+      <p>The relay listens on <code>127.0.0.1:18787</code>. Tailscale Serve provides HTTPS on the node’s MagicDNS name at port 443. If another service owns either port, choose free ones on the first install with <code>--https-port 9443 --listen-port 18788</code>. The installer preserves existing Serve routes and refuses a port configured for Funnel.</p>
+      <pre><code>systemctl --user status aih-relay.service
+journalctl --user -u aih-relay.service -n 50</code></pre>
+      <p>To keep the user service running after logout and start it at boot, enable lingering with <code>loginctl enable-linger "$USER"</code>. On systems that restrict Tailscale configuration, the installer prints the exact operator command to run. Repeating the install keeps the existing key and profile.</p>
+    </section>
+  </main>
+</body>
+</html>
