@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Remote access — AIHerd</title>
-  <meta name="description" content="Watch AIHerd preview remote images and Markdown, keep an SSH session through an internet interruption, and connect SFTP clients such as Cyberduck through a local listener.">
+  <meta name="description" content="Add headless Linux machines to your AIHerd account, preview remote files, and keep SSH sessions through internet interruptions.">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="stylesheet" href="/css/access.css?v=e57f92cca6dd">
 </head>
@@ -12,7 +12,7 @@
   <header>
     <nav aria-label="Main navigation">
       <a class="brand" href="/"><img src="/img/icon.png" width="32" height="32" alt="">AIHerd</a>
-      <div><a href="#pane">Remote panes</a><a href="#bubbles">File bubbles</a><a href="#ssh">Resilient SSH</a><a href="#clients">Cyberduck &amp; SSH clients</a><a href="/#install">Install <span aria-hidden="true">↗</span></a></div>
+      <div><a href="#pane">Remote panes</a><a href="#bubbles">File bubbles</a><a href="#ssh">Resilient SSH</a><a href="#clients">Cyberduck &amp; SSH clients</a><a href="#invite">Herd invites</a><a href="/#install">Install <span aria-hidden="true">↗</span></a></div>
     </nav>
   </header>
   <main>
@@ -72,6 +72,29 @@
       </div>
       <div class="details-grid"><div><h3>Use the same listener with OpenSSH</h3><pre><code>ssh -p 2222 aih@127.0.0.1
 sftp -P 2222 aih@127.0.0.1</code></pre><p>The address belongs to your local computer. Commands and file operations run on the paired remote machine.</p></div><div><h3>Let AIHerd choose the port</h3><pre><code>aih ssh leibo-asus --listen</code></pre><p>Without an address, AIHerd binds to an available port on <code>127.0.0.1</code> and prints it. Enter that printed port in Cyberduck.</p></div></div>
+    </section>
+    <section class="demo bubbles-demo" id="invite" aria-labelledby="invite-title">
+      <div class="section-intro">
+        <h2 id="invite-title">Invite a headless Linux machine.</h2>
+        <p>Add a Linux server or container to your AIHerd account without opening a browser on it. Herd invites are available in AIHerd 6.0.2 and later.</p>
+      </div>
+      <div class="details-grid">
+        <div>
+          <h3>Create the invite</h3>
+          <p>Run this in a terminal on a machine whose herd is running, signed in, and connected to its relay.</p>
+          <pre><code>aih invite --name build-box</code></pre>
+          <p>Keep this terminal open. The command prints a Linux install command with a one-time invite that expires after 10 minutes.</p>
+        </div>
+        <div>
+          <h3>Run the installer and approve the PIN</h3>
+          <p>Paste the printed command into the new Linux machine’s terminal. When it displays a PIN, enter it at the prompt in the terminal where you ran <code>aih invite</code>.</p>
+          <p>On Linux without systemd, the installer starts AIHerd in the foreground. Keep that process running to maintain access.</p>
+        </div>
+      </div>
+      <div class="section-intro">
+        <p>Once the new herd connects, it appears in your account. On the inviting machine, use the saved connection name with <code>aih ssh</code>, for example <code>aih ssh build-box</code>. Run <code>aih connection list</code> to check the name.</p>
+        <p>Devices already paired with the inviting herd through your account can connect without another PIN. Pair QR-only devices with the new herd.</p>
+      </div>
     </section>
     <section class="closing"><p class="eyebrow">Pair once. Come back from anywhere.</p><h2>Bring your own terminal.</h2><p>Install AIHerd on the machine you want to reach, keep its herd running, and pair your devices.</p><a class="button" href="/#install">Set up your machine <span aria-hidden="true">↗</span></a></section>
   </main>
